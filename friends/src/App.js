@@ -30,6 +30,20 @@ class App extends Component {
     })
   }
 
+  addFriend = (e, friend) => {
+    e.preventDefault();
+    axios.post("http://localhost:5000/friends", friend)
+    .then (res => {
+      this.setState ({
+        friends: res.data
+      });
+      this.props.history.push("/");
+    })
+    .catch (err => {
+       console.log(err);
+    });
+  };
+
   render() {
     return (
       <div className="App">
@@ -51,6 +65,7 @@ class App extends Component {
       <Route path="/friend-form" render ={props => <FriendForm
       {...props}
       activeFriend={this.state.activeFriend}
+      addFriend ={this.addFriend}
       />}/>
       </div>
     );
