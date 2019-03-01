@@ -20,8 +20,9 @@ class FriendForm extends Component {
 
     changeHandler = e => {
       e.persist();
+      let value = e.target.value
       if (e.target.name === 'age'){
-        e.target.value = parseInt(e.target.value,10);
+        value = parseInt(value, 10);
       }
       this.setState(prevState =>({
         friend: {

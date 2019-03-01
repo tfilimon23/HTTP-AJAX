@@ -12,6 +12,7 @@ function Friend(props) {
             <h1>{friend.name}</h1>
             <h3>{friend.age}</h3>
             <p>{friend.email}</p>
+            <button onClick={e=> props.deleteFriend(e, friend.id)}>Delete Friend</button>
         </div>
     );
 }
